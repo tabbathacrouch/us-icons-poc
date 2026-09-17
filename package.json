@@ -15,7 +15,7 @@
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "styled-components": "^6.5.3",
-    "united-states-and-territories-solid-svg-icons": "file:vendor/united-states-and-territories-solid-svg-icons-1.0.1.tgz"
+    "united-states-and-territories-solid-svg-icons": "^1.0.1"
   },
   "devDependencies": {
     "@types/node": "^20",
