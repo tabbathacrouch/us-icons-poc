@@ -1,69 +1,31 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import { IconGallery } from "@/components/icon-gallery/icon-gallery";
+import { getStateIcons } from "@/lib/icons";
+import { Code, Header, Lede, Main, NavLink, Title } from "./page.styles";
 
-export default function Home() {
+/**
+ * Server Component: the icon list is derived at build time and handed to the
+ * client gallery as props. Icon definitions are plain objects (numbers, strings
+ * and arrays), so they cross the server/client boundary without serialization.
+ */
+export default function HomePage() {
+  const entries = getStateIcons();
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.tsx</code> file.
-          </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <Main>
+      <Header>
+        <Title>US State &amp; Territory Icons</Title>
+        <Lede>
+          All {entries.length} icons from{" "}
+          <Code>united-states-and-territories-solid-svg-icons</Code>, rendered
+          with <Code>&lt;FontAwesomeIcon&gt;</Code>. Resize them to see which
+          silhouettes hold up — the island territories thin out below the sizes
+          the package documents.
+        </Lede>
+        <NavLink href="/compare">
+          Compare Font Awesome vs. raw SVG rendering →
+        </NavLink>
+      </Header>
+      <IconGallery entries={entries} />
+    </Main>
   );
 }

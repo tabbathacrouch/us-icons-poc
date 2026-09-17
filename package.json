@@ -9,9 +9,13 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^7.3.1",
+    "@fortawesome/react-fontawesome": "^3.5.0",
     "next": "16.3.5",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "styled-components": "^6.5.3",
+    "united-states-and-territories-solid-svg-icons": "file:vendor/united-states-and-territories-solid-svg-icons-1.0.1.tgz"
   },
   "devDependencies": {
     "@types/node": "^20",
